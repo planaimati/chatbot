@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatContainer {
+  height: 45%;
+  width: 25%;
+  border: 1px solid black;
+  flex-direction: column;
+  display: none;
+}
+
+.screenContainer {
+  height: 70%;
+  width: 100%;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: scroll;
+}
+
+.screenContainer::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.inputContainer {
+  height: 10%;
+  width: 100%;
+  display: flex;
+}
+
+.submitButton {
+  width: 10%;
+  height: 100%;
+}
+
+.questionsContainer {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.singleQuestion {
+  width: 25%;
+  background-color: royalblue;
+  color: white;
+  margin: 2px;
+  cursor: pointer;
+}
+
+input {
+  height: 100%;
+  width: 90%;
+  border: none;
+}
+
+.active {
+  display: flex;
+}
+
+.question {
+  align-self: flex-end;
+  text-align: right;
+  background-color: #5b5e6c;
+  height: 50px;
+  width: 80%;
+  margin-bottom: 5px;
+  flex-shrink: 0;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.answer {
+  align-self: flex-start;
+  height: 50px;
+  width: 80%;
+  background-color: #2671ff;
+  margin-bottom: 5px;
+  flex-shrink: 0;
+  border-radius: 0 10px 10px 0px;
+}
