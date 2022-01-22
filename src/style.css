@@ -19,7 +19,7 @@ body {
 
 .chatContainer {
   height: 45%;
-  width: 25%;
+  width: 35%;
   border: 1px solid black;
   flex-direction: column;
   display: none;
@@ -44,11 +44,7 @@ body {
   height: 10%;
   width: 100%;
   display: flex;
-}
-
-.submitButton {
-  width: 10%;
-  height: 100%;
+  justify-content: space-between;
 }
 
 .questionsContainer {
@@ -60,17 +56,26 @@ body {
 }
 
 .singleQuestion {
-  width: 25%;
-  background-color: royalblue;
+  width: 35%;
+  height: 50%;
+  background-color: #4095c6;
   color: white;
-  margin: 2px;
+  margin: 5px;
+  padding: 5px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.singleQuestion:hover {
+  background-color: #4095c6;
 }
 
 input {
   height: 100%;
-  width: 90%;
+  width: 60%;
   border: none;
+  padding: 5px;
 }
 
 .active {
@@ -81,19 +86,91 @@ input {
   align-self: flex-end;
   text-align: right;
   background-color: #5b5e6c;
+  color: white;
   height: 50px;
   width: 80%;
   margin-bottom: 5px;
   flex-shrink: 0;
   border-radius: 10px 0px 0px 10px;
+  font-family: sans-serif;
+  padding: 10px;
 }
 
 .answer {
   align-self: flex-start;
   height: 50px;
   width: 80%;
-  background-color: #2671ff;
+  background-color: #4eb5f1;
   margin-bottom: 5px;
   flex-shrink: 0;
   border-radius: 0 10px 10px 0px;
+  color: white;
+  font-family: sans-serif;
+  padding: 10px;
+}
+.activateButton {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border: none;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #4eb5f1;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.activateButton:hover {
+  background-color: #4095c6;
+}
+
+.remove {
+  display: none;
+}
+
+.submitButton {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #4eb5f1;
+  text-align: center;
+  transition: all 0.2s;
+  height: 100%;
+  width: 14%;
+}
+
+.clearButton {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #4eb5f1;
+  text-align: center;
+  transition: all 0.2s;
+  height: 100%;
+  width: 14%;
+}
+
+.clearButton:hover {
+  background-color: #4095c6;
+}
+.submitButton:hover {
+  background-color: #4095c6;
 }

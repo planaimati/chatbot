@@ -5,7 +5,8 @@ class Chat {
     public chatWindow: HTMLDivElement,
     public questions: NodeList,
     public screen: HTMLDivElement,
-    public submitButton: HTMLButtonElement
+    public submitButton: HTMLButtonElement,
+    public clearButon: HTMLButtonElement
   ) {}
 
   userQuestionFromInput = "";
@@ -29,8 +30,13 @@ class Chat {
   answersForUserQuestions = [
     {
       id: 1,
-      crucialWords: ["gdzie", "mieszkasz"],
+      crucialWords: ["gdzie", "mieszkasz", "skąd", "pochodzisz", "jesteś"],
       answer: "Mieszkam w Wiśle",
+    },
+    {
+      id: 2,
+      crucialWords: ["czym", "zajmujesz"],
+      answer: "Jestem programistą",
     },
   ];
 
@@ -65,15 +71,14 @@ class Chat {
 
       this.handleDisplay(
         this.userQuestionFromInput,
-        element1
-          ? element1.answer
-          : "Na ten moment nie możemy odpowiedzieć na zadane pytanie"
+        element1 ? element1.answer : "Na znam odpowiedzi :("
       );
     }
   }
   // metoda która umożliwia odtarcie okna chatu
   handleButtonClick() {
     chatWindow.classList.add("active");
+    activateChatButton.classList.add("remove");
   }
   //metoda odpowiadająca za wybór zdefiniowanych wcześniej pytań
   handlePickQuestion(e: Event) {
@@ -108,6 +113,21 @@ class Chat {
     this.screen.appendChild(answerHTML);
     input.value = " ";
   }
+
+  //metoda która czyści okno chatu
+  clearChat() {
+    const answers = document.querySelectorAll(".answer");
+    const questions = document.querySelectorAll(".question");
+
+    for (let answer of answers) {
+      answer.remove();
+    }
+
+    for (let question of questions) {
+      question.remove();
+    }
+  }
+
   // metoda dodająca listenery na poszczególne elementy
   addListeners() {
     activateChatButton.addEventListener("click", this.handleButtonClick);
@@ -115,6 +135,7 @@ class Chat {
       question.addEventListener("click", (e) => this.handlePickQuestion(e));
     });
     submitButton.addEventListener("click", (e) => this.handleSubmitAnswer(e));
+    clearButon.addEventListener("click", this.clearChat);
   }
 }
 
@@ -132,13 +153,16 @@ const submitButton = document.querySelector(
   ".submitButton"
 ) as HTMLButtonElement;
 
+const clearButon = document.querySelector(".clearButton") as HTMLButtonElement;
+
 const chat = new Chat(
   activateChatButton,
   input,
   chatWindow,
   questions,
   screenContainer,
-  submitButton
+  submitButton,
+  clearButon
 );
 
 chat.addListeners();
