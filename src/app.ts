@@ -1,4 +1,35 @@
-class Chat {
+type questionType = {
+  id: number;
+  answer: string;
+};
+
+type answerType = {
+  id: number;
+  crucialWords: string[];
+  answer: string;
+};
+
+interface chatInterface {
+  activateChatButton: HTMLButtonElement;
+  input: HTMLInputElement;
+  chatWindow: HTMLDivElement;
+  questions: NodeList;
+  screen: HTMLDivElement;
+  submitButton: HTMLButtonElement;
+  clearButon: HTMLButtonElement;
+  userQuestionFromInput: string;
+  answersForPredefinedQuestions: questionType[];
+  answersForUserQuestions: answerType[];
+  handleSubmitAnswer(e: Event): void;
+  handleButtonClick(): void;
+  handlePickQuestion(e: Event): void;
+  handleDisplayMessages(message: string, id?: number): void;
+  handleDisplay(firstMessage: string, secondMessage: string): void;
+  clearChat(): void;
+  addListeners(): void;
+}
+
+class Chat implements chatInterface {
   constructor(
     public activateChatButton: HTMLButtonElement,
     public input: HTMLInputElement,
